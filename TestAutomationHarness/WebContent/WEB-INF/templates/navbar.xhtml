@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<body>
+
+	<ui:composition>
+
+		<nav id="nav">
+			<H2 align="center">Tester Links</H2>
+			<h:panelGrid class="panelGridCenter" columns="1">
+
+				<h:button value="Add New Project" outcome="project"
+					style="width:200px;height:50px" />
+				<h:button value="Add New Test" outcome="project_select.xhtml"
+					style="width:200px;height:50px" />
+				<h:button value="Start Test Run" outcome="start_test_run"
+					style="width:200px;height:50px" />
+				<h:button value="View Test Run" outcome="view_test_run"
+					style="width:200px;height:50px" />
+				<h:button value="Execution Report" outcome="execution_report"
+					style="width:200px;height:50px" />
+
+			</h:panelGrid>
+
+
+		</nav>
+
+	</ui:composition>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<div align="center">
+		<br />
+		<H2>Project Select Page</H2>
+	</div>
+	
+	<f:metadata>
+		<f:event listener="#{automationProjectBacking.onload()}" type="preRenderView" />
+	</f:metadata>
+
+	<h:form id="formdiv">
+		<br />
+		<div>
+			<h:panelGrid class="panelGridCenter" columns="2"
+				columnClasses="firstColumn,secondColumn">
+
+				<h:panelGroup>
+					<h:outputText value="Project:"></h:outputText>
+					<h:selectOneMenu id="projectdd"
+						value="#{automationProjectBacking.automationproject.projectName}">
+						<f:selectItems
+							value="#{automationProjectBacking.projectNameOptions}" />
+					</h:selectOneMenu>
+				</h:panelGroup>
+				<br />
+
+				<h:panelGroup>
+					<h:outputText escape="false"
+						value="Select &lt;strong&gt;Expected&lt;/strong&gt; Value Type: "></h:outputText>
+					<h:selectOneMenu
+						value="#{automationProjectBacking.automationproject.expectedValueType}">
+						<f:selectItems
+							value="#{automationProjectBacking.expectedValueTypeOptions}" />
+						<f:ajax
+							listener="#{automationProjectBacking.listenerExpectedSubType()}"
+							render="rexpValSubType expectedLoc" />
+					</h:selectOneMenu>
+				</h:panelGroup>
+
+				<h:panelGroup>
+					<h:outputText escape="false"
+						value="Select &lt;strong&gt;Actual&lt;/strong&gt; Value Type: "></h:outputText>
+					<h:selectOneMenu
+						value="#{automationProjectBacking.automationproject.actualValueType}">
+						<f:selectItems
+							value="#{automationProjectBacking.actualValueTypeOptions}" />
+						<f:ajax execute="actualLoc"
+							listener="#{automationProjectBacking.listenerActualSubType()}"
+							render="ractValSubType actualLoc" />
+					</h:selectOneMenu>
+				</h:panelGroup>
+
+				<h:panelGroup>
+					<h:outputText escape="false"
+						value="Select &lt;strong&gt;Expected&lt;/strong&gt; Value Sub Type: "></h:outputText>
+					<h:selectOneMenu id="rexpValSubType"
+						value="#{automationProjectBacking.automationproject.expectedValueSubType}">
+						<f:selectItems
+							value="#{automationProjectBacking.expectedValueSubTypeOptions}" />
+						<f:ajax
+							listener="#{automationProjectBacking.listenerExpectedLocation()}"
+							render="expectedLoc" />
+					</h:selectOneMenu>
+				</h:panelGroup>
+
+
+				<h:panelGroup>
+					<h:outputText escape="false"
+						value="Select &lt;strong&gt;Actual&lt;/strong&gt; Value Sub Type: "></h:outputText>
+					<h:selectOneMenu id="ractValSubType"
+						value="#{automationProjectBacking.automationproject.actualValueSubType}">
+						<f:selectItems
+							value="#{automationProjectBacking.actualValueSubTypeOptions}" />
+						<f:ajax
+							listener="#{automationProjectBacking.listenerActualLocation()}"
+							render="actualLoc" />
+					</h:selectOneMenu>
+				</h:panelGroup>
+
+				<h:panelGroup>
+					<h:outputText escape="false"
+						value="Select or Enter &lt;strong&gt;Expected&lt;/strong&gt; Location: "></h:outputText>
+					<h:selectOneMenu id="expectedLoc"
+						value="#{automationProjectBacking.automationproject.expectedLocation}"
+						onchange="window.location.replace(window.location.href);">
+						<f:selectItems
+							value="#{automationProjectBacking.expectedLocationOptions}" />
+					</h:selectOneMenu>
+				</h:panelGroup>
+
+				<h:panelGroup>
+					<h:outputText escape="false"
+						value="Select or Enter &lt;strong&gt;Actual&lt;/strong&gt; Location: "></h:outputText>
+					<h:selectOneMenu id="actualLoc"
+						value="#{automationProjectBacking.automationproject.actualLocation}"
+						onchange="window.location.replace(window.location.href);">
+						<f:selectItems
+							value="#{automationProjectBacking.actualLocationOptions}" />
+					</h:selectOneMenu>
+				</h:panelGroup>
+
+				<h:panelGroup>
+					<h:outputText value="Preferred Results Location: "></h:outputText>
+					<h:selectOneMenu
+						value="#{automationProjectBacking.automationproject.prefResultsLoc}">
+						<f:selectItems
+							value="#{automationProjectBacking.prefResultsLocOptions}" />
+					</h:selectOneMenu>
+				</h:panelGroup>
+
+				<h:panelGroup>
+					<h:outputLabel value="Enter the Name of this Test: "></h:outputLabel>
+					<h:inputText id="testname"
+						value="#{automationProjectBacking.automationproject.testName}"
+						required="true"
+						requiredMessage="Name of this Test can not be blank"></h:inputText>
+
+				</h:panelGroup>
+
+				<br />
+				<h:panelGroup>
+					<h:message for="testname" style="color:red" />
+					<h:message for="saveTest" />
+				</h:panelGroup>
+
+			</h:panelGrid>
+
+		</div>
+
+		<h:commandButton id="saveTest" class="button" value="Save Test"
+			layout="block" binding="#{automationProjectBacking.mybutton}"
+			action="#{automationProjectBacking.saveTest()}">
+		</h:commandButton>
+	</h:form>
+
+	<br />
+
+</ui:composition>

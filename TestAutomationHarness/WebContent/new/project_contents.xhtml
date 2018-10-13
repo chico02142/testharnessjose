@@ -1,0 +1,49 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<div align="center">
+		<br />
+		<h2>Project Page</h2>
+	</div>
+
+	<h:form id="formdiv" autocomplete="off">	
+		<h:panelGrid columns="1" class="panelGridCenter"
+			columnClasses="firstColumnB">
+	
+			<h:panelGroup>
+				<p:outputLabel for="project" value="Project: " 
+					style="vertical-align:middle;" />
+				<p:selectOneMenu id="project" autocomplete="off"
+					value="#{automationProjectBacking.automationproject.projectName}" 
+					editable="true"
+					style="vertical-align:middle;">
+					<f:selectItem itemLabel="Select Project or Enter New Project" itemValue="" 
+					itemDisabled="true"/>
+					<f:selectItems
+						value="#{automationProjectBacking.projectNameOptions}" />
+				</p:selectOneMenu>
+			</h:panelGroup>
+			<h:outputLabel value="*Select Project or Enter a New Project Name"></h:outputLabel>
+
+		</h:panelGrid>
+		
+			<div align="center">
+				<h:message for="saveProject"/>
+			</div>
+			
+		<h:commandButton id="saveProject" class="button" value="Save" layout="block"
+			binding="#{automationProjectBacking.mybutton}"
+			action="#{automationProjectBacking.saveProject()}"></h:commandButton>	
+
+	</h:form>
+
+	<br />
+
+
+
+</ui:composition>

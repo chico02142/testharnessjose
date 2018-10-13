@@ -1,0 +1,30 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<div align="center">
+		<br/>
+		<h2>Project Page</h2>
+	</div>
+
+	<h:form id="formdiv">
+
+		<h:panelGrid columns="1" class="panelGridCenter" columnClasses="firstColumnB">
+			<h:panelGroup>	
+				<h:outputLabel value="Project:"></h:outputLabel>
+				<h:inputText label="Enter New" required="true"></h:inputText>
+			</h:panelGroup>
+		</h:panelGrid>
+
+		<h:button class="button" value="Submit" layout="block"
+			outcome="project_select"></h:button>
+
+	</h:form>
+
+	<br />
+
+</ui:composition>

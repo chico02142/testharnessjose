@@ -1,0 +1,48 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+	<div align="center">
+		<br />
+		<h2>Add New DB Test</h2>
+	</div>
+	<!--  <f:event listener="#{automationTest.init()}" type="preRenderView" />-->
+	<h:form>
+
+		<h:panelGrid class="panelGridCenter" columns="1"
+			columnClasses="firstColumn">
+
+			<h:panelGroup>
+				<h:outputLabel value="Test: "></h:outputLabel>
+				<h:inputText value="#{automationTest.testName}" required="true"></h:inputText>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:outputLabel value="Database: "></h:outputLabel>
+				<h:inputText value="#{automationTest.fileNameOne}" required="true"></h:inputText>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:outputLabel value="Hue :"></h:outputLabel>
+				<h:inputText value="#{automationTest.fileNameTwo}" required="true"></h:inputText>
+			</h:panelGroup>
+		</h:panelGrid>
+
+		<div align="center">
+			<br />
+			<h:outputLabel value="Configure Expected Values Test Steps"></h:outputLabel>
+			<hr />
+			<h:inputTextarea style="width: auto; height: auto" 
+			value="&lt;Enter SQL&gt; "
+			></h:inputTextarea>
+			<br /> <br />
+		</div>
+
+		<h:commandButton class="button" value="Submit" layout="block"
+			action="project"></h:commandButton>
+
+	</h:form>
+
+</ui:composition>

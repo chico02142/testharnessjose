@@ -1,0 +1,56 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<div align="center">
+		<br />
+		<h2>Add New File Test</h2>
+	</div>
+
+	
+	<h:form>
+
+		<h:panelGrid class="panelGridCenter" columns="1"
+			columnClasses="firstColumn">
+
+			<h:panelGroup>
+				<h:outputLabel value="Test: "></h:outputLabel>
+				<h:inputText
+					value="#{automationTestBacking.automationtest.testName}"
+					required="true"></h:inputText>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:outputLabel value="File Name One: "></h:outputLabel>
+				<h:inputText
+					value="#{automationTestBacking.automationtest.fileNameOne}"
+					required="true"></h:inputText>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:outputLabel value="File Name Two :"></h:outputLabel>
+				<h:inputText
+					value="#{automationTestBacking.automationtest.fileNameTwo}"
+					required="true"></h:inputText>
+			</h:panelGroup>
+		</h:panelGrid>
+
+	<h:outputText value="Hello Friend2">Hello Friend</h:outputText>
+	
+				<h:outputLabel value="Test333: "></h:outputLabel>
+				<h:inputText
+					value="#{automationTestBacking.automationtest.testName}"
+					></h:inputText>
+	
+    <h:commandButton value="Download" ajax="false" icon="ui-icon-arrowthick-1-s">
+        <p:fileDownload value="#{automationTestBacking.downloadfile()}"/>       
+    </h:commandButton>
+
+	</h:form>
+
+
+
+
+</ui:composition>

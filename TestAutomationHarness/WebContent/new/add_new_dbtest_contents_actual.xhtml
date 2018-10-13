@@ -1,0 +1,54 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:composite="http://java.sun.com/jsf/composite">
+
+	<div align="center">
+		<br />
+		<h2>Add New Actual Results DB Test</h2>
+	</div>
+	<h:form enctype="multipart/form-data">
+
+		<h:panelGrid class="panelGridCenter" columns="1"
+			columnClasses="firstColumn">
+			<h:panelGroup>
+				<h:outputLabel value="Test Name: "></h:outputLabel>
+				<h:inputText id="testname" value="#{automationTestBacking.act_testname}"
+					readonly="true"></h:inputText>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:outputLabel value="Testype:  "></h:outputLabel>
+				<h:inputText value="#{automationTestBacking.act_testtyppe}"
+					readonly="true"></h:inputText>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:outputLabel value="Test Subtype: "></h:outputLabel>
+				<h:inputText value="#{automationTestBacking.act_testsubtype}"
+					readonly="true"></h:inputText>
+			</h:panelGroup>
+		</h:panelGrid>
+
+		<div align="center">
+			<br />
+			<h:outputLabel escape="false" value="Configure &lt;strong&gt;Actual&lt;/strong&gt; Values Test Steps"></h:outputLabel>
+			<hr />
+			<br />
+		</div>
+
+		<h:panelGroup id="fileUploadGroup">
+			<p:fileUpload id="fileuploadbutton"
+				fileUploadListener="#{automationTestBacking.uploadFile}"
+				label="Upload SQL File" mode="advanced" auto="true"
+				sizeLimit="100000" allowTypes="/(\.|\/)(sql|txt)$/" />
+		</h:panelGroup>
+
+		<p:growl id="messages" showDetail="true" />
+	</h:form>
+
+	<br />
+
+</ui:composition>
