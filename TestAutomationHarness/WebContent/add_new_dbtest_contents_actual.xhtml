@@ -83,7 +83,9 @@
 							fileUploadListener="#{automationTestBacking.uploadFile}"
 							mode="advanced" dragDropSupport="false" update="messages"
 							sizeLimit="100000" fileLimit="3"
-							allowTypes="/(\.|\/)(gif|jpe?g|png|xlsx)$/" />
+							allowTypes="/(\.|\/)(gif|jpe?g|png|xlsx)$/" >
+							<f:attribute name="src" value="actual"></f:attribute>
+							</p:fileUpload>
 					</h:panelGroup>
 				</div>
 			</div>
